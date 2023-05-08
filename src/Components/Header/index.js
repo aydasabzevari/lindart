@@ -34,7 +34,7 @@ function AppHeader() {
             key: "",
           },
           {
-            label: "Men",
+            label: "آیدا",
             key: "men",
             children: [
               {
@@ -83,8 +83,13 @@ function AppHeader() {
           },
         ]}
       />
-      <Typography.Title>Aamir Store</Typography.Title>
-      <AppCart />
+      <Typography.Title>Lindart</Typography.Title>
+      <div className="cart-and-btn">
+        <Button onClick={() => {
+          navigate("/login");
+        }}>Login</Button>
+        <AppCart />
+      </div>
     </div>
   );
 }
