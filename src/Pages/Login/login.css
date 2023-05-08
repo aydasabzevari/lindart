@@ -1,0 +1,14 @@
+.wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://www.mohsenirani.com/data/_uploaded/image/training/art-store-1.jpg');
+}
+
+.login-page {
+    background-color: white;
+    border-radius: 20px;
+    padding: 80px;
+}
