@@ -88,8 +88,12 @@ function AppHeader() {
         <Button onClick={() => {
           navigate("/login");
         }}>Login</Button>
+        <Button onClick={() => {
+          navigate("/signup");
+        }}>Signup</Button>
         <AppCart />
       </div>
+
     </div>
   );
 }
