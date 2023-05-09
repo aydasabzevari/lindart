@@ -34,52 +34,52 @@ function AppHeader() {
             key: "",
           },
           {
-            label: "لوازم تحریر",
-            key: "لوازم تحریر",
+            label: "Men",
+            key: "men",
             children: [
               {
-                label: "کلاسر",
-                key: "کلاسر",
+                label: "Men's Shirts",
+                key: "mens-shirts",
               },
               {
-                label: "کلربوک",
-                key: "کلربوک",
+                label: "Men's Shoes",
+                key: "mens-shoes",
               },
               {
-                label: "دفتر فنری",
-                key: "دفتر",
+                label: "Men's Watches",
+                key: "mens-watches",
               },
             ],
           },
           {
-            label: " آموزش هنر",
-            key: "آموزش",
+            label: "Women",
+            key: "women",
             children: [
               {
-                label: " آموزش طراحی",
-                key: "طراحی",
+                label: "Women's Dresses",
+                key: "womens-dresses",
               },
               {
-                label: "آموزش سیاقلم",
-                key: "سیاقلم",
+                label: "Women's Shoes",
+                key: "womens-shoes",
               },
               {
-                label: "آموزش طراحی با خودکار",
-                key: "طراحی با خودکار",
+                label: "Women's Watches",
+                key: "womens-watches",
               },
               {
-                label: "آموزش نقاشی با آبرنگ",
-                key: "آبرنگ",
+                label: "Women's Bags",
+                key: "womens-bags",
               },
               {
-                label: "آموزش پاستل گچی",
-                key: "پاستل گچی",
+                label: "Women's Jewellery",
+                key: "womens-jewellery",
               },
             ],
           },
           {
-            label: "تاریخچه هنر",
-            key: "نقاشی هنر چندم است؟",
+            label: "Fragrances",
+            key: "fragrances",
           },
         ]}
       />
@@ -93,7 +93,6 @@ function AppHeader() {
         }}>Signup</Button>
         <AppCart />
       </div>
-
     </div>
   );
 }
