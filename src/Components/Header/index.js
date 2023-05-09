@@ -34,52 +34,52 @@ function AppHeader() {
             key: "",
           },
           {
-            label: "آیدا",
-            key: "men",
+            label: "لوازم تحریر",
+            key: "لوازم تحریر",
             children: [
               {
-                label: "Men's Shirts",
-                key: "mens-shirts",
+                label: "کلاسر",
+                key: "کلاسر",
               },
               {
-                label: "Men's Shoes",
-                key: "mens-shoes",
+                label: "کلربوک",
+                key: "کلربوک",
               },
               {
-                label: "Men's Watches",
-                key: "mens-watches",
+                label: "دفتر فنری",
+                key: "دفتر",
               },
             ],
           },
           {
-            label: "Women",
-            key: "women",
+            label: " آموزش هنر",
+            key: "آموزش",
             children: [
               {
-                label: "Women's Dresses",
-                key: "womens-dresses",
+                label: " آموزش طراحی",
+                key: "طراحی",
               },
               {
-                label: "Women's Shoes",
-                key: "womens-shoes",
+                label: "آموزش سیاقلم",
+                key: "سیاقلم",
               },
               {
-                label: "Women's Watches",
-                key: "womens-watches",
+                label: "آموزش طراحی با خودکار",
+                key: "طراحی با خودکار",
               },
               {
-                label: "Women's Bags",
-                key: "womens-bags",
+                label: "آموزش نقاشی با آبرنگ",
+                key: "آبرنگ",
               },
               {
-                label: "Women's Jewellery",
-                key: "womens-jewellery",
+                label: "آموزش پاستل گچی",
+                key: "پاستل گچی",
               },
             ],
           },
           {
-            label: "Fragrances",
-            key: "fragrances",
+            label: "تاریخچه هنر",
+            key: "نقاشی هنر چندم است؟",
           },
         ]}
       />
