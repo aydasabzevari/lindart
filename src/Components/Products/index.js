@@ -12,13 +12,15 @@ import {
 } from "antd";
 import { useEffect, useState } from "react";
 import { addToCart, getAllProducts, getProductsByCategory } from "../../API";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Products() {
   const [loading, setLoading] = useState(false);
   const param = useParams();
   const [items, setItems] = useState([]);
   const [sortOrder, setSortOrder] = useState("az");
+  const navigate = useNavigate();
+
   useEffect(() => {
     setLoading(true);
     (param?.categoryId
@@ -106,6 +108,13 @@ function Products() {
                 actions={[
                   <Rate allowHalf disabled value={product.rating} />,
                   <AddToCartButton item={product} />,
+                  <Button
+                    onClick={() => {
+                      navigate(`/product/${product.id}`);
+                    }}
+                  >
+                    Details
+                  </Button>,
                 ]}
               >
                 <Card.Meta
