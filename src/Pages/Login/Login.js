@@ -1,4 +1,4 @@
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Checkbox, Form, Input, notification } from "antd";
 import "./login.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,16 @@ const loginUrl = "http://localhost:8000/api/token/";
 
 const onFinishFailed = (errorInfo) => {
   console.log("Failed:", errorInfo);
+};
+
+const openNotification = (message) => {
+  notification.open({
+    message: "Notification Title",
+    description: message,
+    onClick: () => {
+      console.log("Notification Clicked!");
+    },
+  });
 };
 
 function LoginPage() {
@@ -28,11 +38,12 @@ function LoginPage() {
       .then((res) => {
         const token = res.data.access;
         localStorage.setItem("access-token", token);
-        
+
         navigate("/dashboard");
       })
       .catch((err) => {
         console.log(err);
+        openNotification("Login Failed!");
       });
   };
 
