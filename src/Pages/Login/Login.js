@@ -1,33 +1,41 @@
 import { Button, Checkbox, Form, Input } from "antd";
 import "./login.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const loginUrl = "http://localhost:8000";
+const loginUrl = "http://localhost:8000/api/token/";
 
-const onFinish = (values) => {
-  const data = {
-    username: values.username,
-    password: values.password,
-  };
-
-  axios
-    .post(loginUrl, data, {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-    .then((res) => {
-        const data = res.data;
-    }).catch(err => {
-        console.log(err);
-    })
-};
 const onFinishFailed = (errorInfo) => {
   console.log("Failed:", errorInfo);
 };
 
 function LoginPage() {
+  const navigate = useNavigate();
+
+  const onFinish = (values) => {
+    const data = {
+      username: values.username,
+      password: values.password,
+    };
+
+    axios
+      .post(loginUrl, data, {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      })
+      .then((res) => {
+        const token = res.data.access;
+        localStorage.setItem("access-token", token);
+        
+        navigate("/dashboard");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div className="wrapper">
       <div className="login-page">

@@ -13,11 +13,19 @@ import {
   Typography,
 } from "antd";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { getCart } from "../../API";
 
 function AppHeader() {
   const navigate = useNavigate();
+  const [isLogin, setIsLogin] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (localStorage.getItem("access-token")) {
+      setIsLogin(true);
+    }
+  }, [isLogin, location]);
 
   const onMenuClick = (item) => {
     navigate(`/${item.key}`);
@@ -85,12 +93,44 @@ function AppHeader() {
       />
       <Typography.Title>Lindart</Typography.Title>
       <div className="cart-and-btn">
-        <Button onClick={() => {
-          navigate("/login");
-        }}>Login</Button>
-        <Button onClick={() => {
-          navigate("/signup");
-        }}>Signup</Button>
+        {!isLogin && (
+          <>
+            <Button
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
+              Login
+            </Button>
+            <Button
+              onClick={() => {
+                navigate("/signup");
+              }}
+            >
+              Signup
+            </Button>
+          </>
+        )}
+        {isLogin && (
+          <>
+            <Button
+              onClick={() => {
+                navigate("/dashboard");
+              }}
+            >
+              Dashboard
+            </Button>
+            <Button
+              onClick={() => {
+                localStorage.removeItem("access-token");
+                setIsLogin(false);
+                navigate("/");
+              }}
+            >
+              Logout
+            </Button>
+          </>
+        )}
         <AppCart />
       </div>
     </div>
@@ -106,7 +146,6 @@ function AppCart() {
     });
   }, []);
   const onConfirmOrder = (values) => {
-    console.log({ values });
     setCartDrawerOpen(false);
     setCheckoutDrawerOpen(false);
     message.success("Your order has been placed successfully.");
